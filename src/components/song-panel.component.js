@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import SongList from './song-list.component';
+import SongSort from './song-sort.component';
 import SelectedSong from './selected-song.component';
+import SongForm from './song-form.component';
 import axios from 'axios';
+
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default class SongPanel extends Component {
     constructor(props) {
@@ -11,6 +17,7 @@ export default class SongPanel extends Component {
         this.editSong = this.editSong.bind(this);
         this.addSong = this.addSong.bind(this);
         this.songSelector = this.songSelector.bind(this);
+        this.sortList = this.sortList.bind(this);
 
         this.state = { 
             songs: [],
@@ -29,13 +36,13 @@ export default class SongPanel extends Component {
     }
 
     deleteSong(id) {
-        axios.get('http://localhost:5000/songs'+id)
-            .then(response => { console.log(response.data) });
+		axios.delete('http://localhost:5000/songs/'+id)
+			.then(response => { console.log(response.data)});
 
-        this.setState({
-            songs: this.state.songs.filter(el => el._id !== id)
-        });
-    }
+		this.setState({
+			songs: this.state.songs.filter(el => el._id !== id)
+		})
+	}
 
     editSong(id, title, artist) {
         const song = {
@@ -60,13 +67,45 @@ export default class SongPanel extends Component {
         this.setState({ selectedSong: song })
     }
 
+    sortList(value) {
+        var songs = this.state.songs;
+
+        var sortedSongs = songs.sort(function(a, b) {
+            var nameA = a[value].toUpperCase(); // ignore upper and lowercase
+            var nameB = b[value].toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+          
+            // names must be equal
+            return 0;
+        });
+
+        this.setState({
+            songs: sortedSongs
+        });
+    }
+
     render() {
         return ( 
-            <div>
-                <h1>Songs</h1>
-                <SongList songs={this.state.songs} songSelector={this.songSelector} />
-                <SelectedSong selectedSong={this.state.selectedSong} />
-            </div>
+            <Container>
+                <Row>
+                    <h1>Songs</h1>
+                </Row>
+                <Row>   
+                    <Col>
+                        <SongSort onSelect={this.sortList} />
+                        <SongList songs={this.state.songs} songSelector={this.songSelector} onDelete={this.deleteSong} />
+                        <SongForm onAdd={this.addSong} />
+                    </Col>
+                    <Col>
+                        <SelectedSong selectedSong={this.state.selectedSong} />
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 }

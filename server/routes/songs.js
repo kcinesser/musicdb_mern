@@ -1,19 +1,27 @@
 const router = require('express').Router();
-let User = require('../models/song.model');
+let Song = require('../models/song.model');
 
 router.route('/').get((req, res) => {
-  User.find()
-    .then(users => res.json(users))
+  Song.find()
+    .then(songs => res.json(songs))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/add').post((req, res) => {
-  const username = req.body.username;
+  const title = req.body.title;
+  const artist = req.body.artist;
+  const album = req.body.album;
 
-  const newUser = new User({username});
+  const newSong = new Song({title, artist, album});
 
-  newUser.save()
-    .then(() => res.json('User added!'))
+  newSong.save()
+    .then(() => res.json(newSong))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/:id').delete((req, res) => {
+  Song.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Song deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
