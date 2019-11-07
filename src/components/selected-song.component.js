@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Upload from './upload.component';
 
 export default class SelectedSong extends Component {
     constructor(props) {
@@ -26,6 +27,8 @@ export default class SelectedSong extends Component {
                         <Card.Subtitle className="mb-2 text-muted">{this.props.selectedSong.artist}</Card.Subtitle>
                         <Card.Text>{this.props.selectedSong.album}</Card.Text>
                         <Card.Text>Difficulty: {this.props.selectedSong.difficulty}</Card.Text>
+                        <Upload />
+
                         {
                             this.props.selectedSong.notes.length ?
 
