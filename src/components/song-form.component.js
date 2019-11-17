@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 
 export default class SongForm extends Component {
     constructor(props) {
@@ -47,29 +45,29 @@ export default class SongForm extends Component {
         return (
             <div>
                 <h2>Add Song</h2>
-                <Form onSubmit={this.onSubmit}>
-                    <Form.Group controlId="formTitle">
-                        <Form.Label>Title</Form.Label>
-                        <Form.Control value={this.state.title} 
+                <form onSubmit={this.onSubmit}>
+                    <div>
+                        <label>Title</label>
+                        <input value={this.state.title} 
                         onChange={this.onChangeSongTitle} />
-                    </Form.Group>
+                    </div>
 
-                    <Form.Group controlId="formArtist">
-                        <Form.Label>Artist</Form.Label>
-                        <Form.Control value={this.state.artist} 
+                    <div>
+                        <label>Artist</label>
+                        <input value={this.state.artist} 
                         onChange={this.onChangeArtistName} />
-                    </Form.Group>
+                    </div>
 
-                    <Form.Group controlId="formAlbum">
-                        <Form.Label>Album</Form.Label>
-                        <Form.Control  value={this.state.album} 
+                    <div>
+                        <label>Album</label>
+                        <input  value={this.state.album} 
                         onChange={this.onChangeAlbumName} />
-                    </Form.Group>
+                    </div>
                
-                    <Button variant="primary" type="submit">
+                    <button type="submit">
                         Add Song
-                    </Button>
-                </Form>
+                    </button>
+                </form>
             </div>
         )
     }

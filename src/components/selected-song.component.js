@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Upload from './upload.component';
+
+import Tab from './tab.component';
+import YouTube from './youtube.component';
+import Spotify from './spotify.component';
 
 export default class SelectedSong extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ export default class SelectedSong extends Component {
     notes() {
         return this.props.selectedSong.notes.map(note => {
             return(
-                <ListGroup.Item key={note}>{note}</ListGroup.Item>
+                <li key={note}>{note}</li>
             )
         })
     }
@@ -21,30 +22,32 @@ export default class SelectedSong extends Component {
     render() {
         if(this.props.selectedSong) {
             return (
-                <Card>
-                    <Card.Body>
-                        <Card.Title>{this.props.selectedSong.title}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">{this.props.selectedSong.artist}</Card.Subtitle>
-                        <Card.Text>{this.props.selectedSong.album}</Card.Text>
-                        <Card.Text>Difficulty: {this.props.selectedSong.difficulty}</Card.Text>
-                        <Upload />
+                <div>
+                    <div>
+                        <h2>{this.props.selectedSong.title}</h2>
+                        <h3 className="mb-2 text-muted">{this.props.selectedSong.artist}</h3>
+                        <p>{this.props.selectedSong.album}</p>
+                        <p>Difficulty: {this.props.selectedSong.difficulty}</p>
+                        <Tab />
+                        <Spotify id={this.props.selectedSong.spotify_id} />
+                        <YouTube id={this.props.selectedSong.youtube_id}/>
 
                         {
                             this.props.selectedSong.notes.length ?
 
                             <div>
-                                <Card.Text>Notes: </Card.Text>
-                                <ListGroup>
+                                <p>Notes: </p>
+                                <ul>
                                     {this.notes()}
-                                </ListGroup>
+                                </ul>
                             </div>
 
                             :
 
                             <div></div>
                         }
-                    </Card.Body>
-                </Card>
+                    </div>
+                </div>
             )
         } else {
             return <div></div>

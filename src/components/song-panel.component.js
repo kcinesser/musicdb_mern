@@ -5,10 +5,6 @@ import SelectedSong from './selected-song.component';
 import SongForm from './song-form.component';
 import axios from 'axios';
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
 export default class SongPanel extends Component {
     constructor(props) {
         super(props);
@@ -91,21 +87,14 @@ export default class SongPanel extends Component {
 
     render() {
         return ( 
-            <Container>
-                <Row>
-                    <h1>Songs</h1>
-                </Row>
-                <Row>   
-                    <Col>
-                        <SongSort onSelect={this.sortList} />
-                        <SongList songs={this.state.songs} songSelector={this.songSelector} onDelete={this.deleteSong} />
-                        <SongForm onAdd={this.addSong} />
-                    </Col>
-                    <Col>
-                        <SelectedSong selectedSong={this.state.selectedSong} />
-                    </Col>
-                </Row>
-            </Container>
+            <div>
+                <h1>Songs</h1>
+                <SongSort onSelect={this.sortList} />
+                <SongList songs={this.state.songs} songSelector={this.songSelector} onDelete={this.deleteSong} />
+                <SongForm onAdd={this.addSong} />
+
+                <SelectedSong selectedSong={this.state.selectedSong} />
+            </div>
         )
     }
 }
