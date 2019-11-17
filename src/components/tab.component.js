@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
 export default class Tab extends Component {
-    render() {
-        return (
-            <div>
-                upload
+  render() {
+    return (
+      <div>
+        upload
             </div>
-        )
-    }
+    )
+  }
 }
