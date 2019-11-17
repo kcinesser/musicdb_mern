@@ -4,35 +4,35 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 class Dashboard extends Component {
-    onLogoutClick = e => {
-        e.preventDefault();
-        this.props.logoutUser();
-    };
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
 
-    render () {
-        const { user } = this.props.auth;
+  render() {
+    const { user } = this.props.auth;
 
-        return (
-            <div>
-                <h1>Dashboard</h1>
-                <b>Hey there,</b> {user.name.split(" ")[0]}
+    return (
+      <div>
+        <h1>Dashboard</h1>
+        <b>Hey there,</b> {user.name.split(" ")[0]}
 
-                <button onClick={this.onLogoutClick}>Logout</button>
-            </div>
-        )
-    }
+        <button onClick={this.onLogoutClick}>Logout</button>
+      </div>
+    )
+  }
 }
 
 Dashboard.propTypes = {
-    logoutUser: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-    auth: state.auth
+  auth: state.auth
 });
 
 export default connect(
-    mapStateToProps,
-    { logoutUser }
+  mapStateToProps,
+  { logoutUser }
 )(Dashboard);

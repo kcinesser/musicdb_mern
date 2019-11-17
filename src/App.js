@@ -6,8 +6,6 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 
-import './App.css';
-
 import PrivateRoute from "./components/private-route/private_route.component";
 
 import Dashboard from './components/dashboard.component';
@@ -45,7 +43,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <Header />
-          <div className="content">
+          <div className="content p-3">
             <Route path="/login" exact component={Login} />
             <Route path="/register" exact component={Register} />
             <Route path='/songs' exact component={SongPanel} />
