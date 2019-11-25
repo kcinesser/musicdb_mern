@@ -14,10 +14,7 @@ class Dashboard extends Component {
 
     return (
       <div>
-        <h1>Dashboard</h1>
-        <b>Hey there,</b> {user.name.split(" ")[0]}
-
-        <button onClick={this.onLogoutClick}>Logout</button>
+        dashbaord
       </div>
     )
   }

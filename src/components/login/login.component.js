@@ -18,13 +18,13 @@ class Login extends Component {
   componentDidMount() {
     // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/");
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/dashboard"); // push user to dashboard when they login
+      this.props.history.push("/"); // push user to dashboard when they login
     }
 
     if (nextProps.errors) {
@@ -52,47 +52,48 @@ class Login extends Component {
   render() {
     const { errors } = this.state;
     return (
-      <div>
-        <div>
+      <div className="flex">
+        <div className="w-1/3 mx-auto">
           <div>
-            <div>
-              <h4><b>Login</b></h4>
-              <p>Don't have an account? <Link to="/register">Register</Link></p>
-            </div>
-            <form noValidate onSubmit={this.onSubmit}>
-              <div>
-                <input
-                  onChange={this.onChange}
-                  value={this.state.email}
-                  error={errors.email}
-                  id="email"
-                  type="email"
-                />
-                <label htmlFor="email">Email</label>
-                <span>
-                  {errors.email}
-                  {errors.emailnotfound}
-                </span>
-              </div>
-              <div>
-                <input
-                  onChange={this.onChange}
-                  value={this.state.password}
-                  error={errors.password}
-                  id="password"
-                  type="password"
-                />
-                <label htmlFor="password">Password</label>
-                <span>
-                  {errors.password}
-                  {errors.passwordincorrect}
-                </span>
-              </div>
-              <div>
-                <button type="submit">Login</button>
-              </div>
-            </form>
+            <h4><b>Login to continue.</b></h4>
           </div>
+          <form noValidate onSubmit={this.onSubmit}>
+            <div>
+              <input
+                onChange={this.onChange}
+                value={this.state.email}
+                error={errors.email}
+                placeHolder="Email"
+                id="email"
+                type="email"
+                className="w-full"
+              />
+              <span>
+                {errors.email}
+                {errors.emailnotfound}
+              </span>
+            </div>
+            <div>
+              <input
+                onChange={this.onChange}
+                value={this.state.password}
+                error={errors.password}
+                placeHolder="Password"
+                id="password"
+                type="password"
+                className="w-full"
+              />
+              <span>
+                {errors.password}
+                {errors.passwordincorrect}
+              </span>
+            </div>
+            <div>
+              <button className="w-full bg-blue-500 rounded text-white" type="submit">Login</button>
+            </div>
+          </form>
+          <p>Don't have an account?</p>
+          <Link className="w-full bg-blue-500 text-white rounded block text-center" to="/register">Register</Link>
         </div>
       </div>
     );

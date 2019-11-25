@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class SongList extends Component {
   constructor(props) {
@@ -36,8 +37,8 @@ export default class SongList extends Component {
     return this.props.songs.map((song, key) => {
       return (
         <li key={song._id}>
-          <div onClick={() => this.props.songSelector(song)} className="border-right">
-            {song.title} - {song.artist}
+          <div>
+            <Link to={`/song/${song._id}`}>{song.title} - {song.artist}</Link>
           </div>
           <div>
             <i onClick={() => this.alert(song._id)} className="fa fa-trash text-right"></i>

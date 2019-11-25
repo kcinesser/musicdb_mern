@@ -1,0 +1,28 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+h1 {
+    font-size: 38px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+a {
+    @apply text-blue-500;
+}
+
+#side-bar {
+    width: 230px;
+    @apply text-white;
+    background-color: #080808;
+}
+

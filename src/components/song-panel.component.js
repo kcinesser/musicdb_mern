@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SongList from './song-list.component';
 import SongSort from './song-sort.component';
-import SelectedSong from './selected-song.component';
 import SongForm from './song-form.component';
 import axios from 'axios';
 
@@ -12,7 +11,6 @@ export default class SongPanel extends Component {
     this.deleteSong = this.deleteSong.bind(this);
     this.editSong = this.editSong.bind(this);
     this.addSong = this.addSong.bind(this);
-    this.songSelector = this.songSelector.bind(this);
     this.sortList = this.sortList.bind(this);
 
     this.state = {
@@ -59,10 +57,6 @@ export default class SongPanel extends Component {
       });
   }
 
-  songSelector(song) {
-    this.setState({ selectedSong: song })
-  }
-
   sortList(value) {
     var songs = this.state.songs;
 
@@ -88,12 +82,9 @@ export default class SongPanel extends Component {
   render() {
     return (
       <div>
-        <h1>Songs</h1>
         <SongSort onSelect={this.sortList} />
-        <SongList songs={this.state.songs} songSelector={this.songSelector} onDelete={this.deleteSong} />
+        <SongList songs={this.state.songs} onDelete={this.deleteSong} />
         <SongForm onAdd={this.addSong} />
-
-        <SelectedSong selectedSong={this.state.selectedSong} />
       </div>
     )
   }

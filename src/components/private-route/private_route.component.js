@@ -3,12 +3,21 @@ import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-const PrivateRoute = ({ component: Component, auth, ...rest }) => (
+import SideBar from '../side-bar.component';
+import NavBar from '../navbar.component';
+
+const PrivateRoute = ({ component: Component, auth, text, ...rest }) => (
   <Route
     {...rest}
     render={props =>
       auth.isAuthenticated === true ? (
-        <Component {...props} />
+        <div className="flex h-screen">
+          <SideBar />
+          <div id="main-content" className="w-full p-6">
+            <NavBar text={text} />
+            <Component {...props} />
+          </div>
+        </div>
       ) : (
           <Redirect to="/login" />
         )

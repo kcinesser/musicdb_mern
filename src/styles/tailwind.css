@@ -11387,6 +11387,28 @@ video {
   z-index: auto;
 }
 
+h1 {
+  font-size: 38px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+a {
+  color: #4299e1;
+}
+
+#side-bar {
+  width: 230px;
+  color: #fff;
+  background-color: #080808;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
@@ -54434,3 +54456,4 @@ video {
     z-index: auto;
   }
 }
+

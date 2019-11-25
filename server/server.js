@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const passport = require('passport');
-var bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 
 require('dotenv').config();
 
@@ -21,6 +21,7 @@ connection.once('open', () => {
 
 const songsRouter = require('./routes/songs');
 const usersRouter = require('./routes/users');
+const artistsRouter = require('./routes/artists');
 
 app.use(
   bodyParser.urlencoded({
@@ -38,6 +39,7 @@ require("./config/passport")(passport);
 // Routes
 app.use("/api/users", usersRouter);
 app.use('/songs', songsRouter);
+app.use('/artists', artistsRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

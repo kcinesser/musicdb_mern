@@ -8,11 +8,12 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 
 import PrivateRoute from "./components/private-route/private_route.component";
 
-import Dashboard from './components/dashboard.component';
-import Header from './components/navbar.component';
-import SongPanel from './components/song-panel.component';
 import Login from './components/login/login.component';
 import Register from './components/login/register.component';
+import Library from './components/library.component';
+import Dashboard from './components/dashboard.component';
+import Search from './components/search.component';
+import Song from './components/song.component';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -42,19 +43,24 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <Header />
-          <div className="content p-3">
-            <Route path="/login" exact component={Login} />
-            <Route path="/register" exact component={Register} />
-            <Route path='/songs' exact component={SongPanel} />
-            <Switch>
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            </Switch>
-          </div>
+          <Route path="/login" exact component={Login} />
+          <Route path="/register" exact component={Register} />
+          <Switch>
+            <RouteWithLayout exact path="/library" component={Library} text="Your Library" />
+            <RouteWithLayout exact path="/search" component={Search} text="Search" />
+            <RouteWithLayout exact path="/" component={Dashboard} text="Dashboard" />
+            <RouteWithLayout exact path="/song/:id" component={Song} />
+          </Switch>
         </Router> 
       </Provider>
     );
   }
 }
+
+const RouteWithLayout = ({ component, ...rest }) => {
+  return (
+    <PrivateRoute {...rest} component={component} />
+  );
+};
 
 export default App;
