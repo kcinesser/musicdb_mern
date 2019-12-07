@@ -1,0 +1,36 @@
+internal/modules/cjs/loader.js:775
+    throw err;
+    ^
+
+Error: Cannot find module '/Users/nicolas/Projects/musicdb_mern/server.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:772:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:677:27)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+internal/modules/cjs/loader.js:775
+    throw err;
+    ^
+
+Error: Cannot find module '/Users/nicolas/Projects/musicdb_mern/server.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:772:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:677:27)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+internal/modules/cjs/loader.js:775
+    throw err;
+    ^
+
+Error: Cannot find module '/Users/nicolas/Projects/musicdb_mern/server.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:772:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:677:27)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
