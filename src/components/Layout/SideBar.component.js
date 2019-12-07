@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import './SideBar.scss';
+
 export default class SideBar extends Component {
     render() {
         return (
-            <div id="side-bar" className="p-6 flex-none">
+            <div id="side-bar" className="p-6 flex-none bg-black text-white">
                 <div>React-Bootstrap</div>
                 <ul className="pb-3">
                     <li><Link to="/">Home</Link></li>

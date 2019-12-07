@@ -3,8 +3,8 @@ import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import SideBar from '../side-bar.component';
-import NavBar from '../navbar.component';
+import SideBar from '../Layout/SideBar.component';
+import NavBar from '../Layout/Navbar.component';
 
 const PrivateRoute = ({ component: Component, auth, text, ...rest }) => (
   <Route

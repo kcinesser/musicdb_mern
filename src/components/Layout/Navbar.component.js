@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { logoutUser } from "../actions/authActions";
+import { logoutUser } from "../../actions/authActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
 class NavBar extends Component {
   onLogoutClick = e => {

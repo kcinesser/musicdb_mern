@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import SongPanel from './song-panel.component';
-import ArtistPanel from './artist-panel.component';
+import SongPanel from './SongPanel.component';
+import ArtistPanel from './ArtistPanel/ArtistPanel.component';
 
 const slides = {
     1: <SongPanel />,
@@ -30,7 +30,7 @@ export default class Library extends Component {
 
         return (
             <div>
-                <ul className="flex mx-auto w-1/2">
+                <ul className="flex mx-auto w-1/2 mb-6">
                     <li className="mx-6" onClick={() => this.onClickTab(1)}>Songs</li>
                     <li className="mx-6" onClick={() => this.onClickTab(2)}>Artists</li>
                     <li className="mx-6" onClick={() => this.onClickTab(3)}>Genres</li>

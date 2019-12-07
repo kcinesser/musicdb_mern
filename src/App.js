@@ -10,10 +10,10 @@ import PrivateRoute from "./components/private-route/private_route.component";
 
 import Login from './components/login/login.component';
 import Register from './components/login/register.component';
-import Library from './components/library.component';
+import Library from './components/Library/Library.component';
 import Dashboard from './components/dashboard.component';
 import Search from './components/search.component';
-import Song from './components/song.component';
+import Artist from './components/Artist/ArtistPage.component';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -49,7 +49,7 @@ class App extends Component {
             <RouteWithLayout exact path="/library" component={Library} text="Your Library" />
             <RouteWithLayout exact path="/search" component={Search} text="Search" />
             <RouteWithLayout exact path="/" component={Dashboard} text="Dashboard" />
-            <RouteWithLayout exact path="/song/:id" component={Song} />
+            <RouteWithLayout exact path="/artist/:id" component={Artist} />
           </Switch>
         </Router> 
       </Provider>

@@ -1,5 +1,6 @@
 const router = require('express').Router();
 let Song = require('../models/song.model');
+let Artist = require('../models/artist.model');
 
 router.route('/').get((req, res) => {
   Song.find()
@@ -8,15 +9,12 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  const title = req.body.title;
-  const artist = req.body.artist;
-  const album = req.body.album;
+  console.log(req.body)
 
-  const newSong = new Song({title, artist, album});
-
-  newSong.save()
-    .then(() => res.json(newSong))
-    .catch(err => res.status(400).json('Error: ' + err));
+  Artist.findByIdAndUpdate(req.body.artist_id)
+  // newSong.save()
+  //   .then(() => res.json(newSong))
+  //   .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/:id').delete((req, res) => {

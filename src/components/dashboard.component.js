@@ -14,7 +14,7 @@ class Dashboard extends Component {
 
     return (
       <div>
-        dashbaord
+        dashboard
       </div>
     )
   }
