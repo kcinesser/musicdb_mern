@@ -1,0 +1,67 @@
+.artist-column {
+    @apply w-1/4 p-3;
+
+    .artist-wrapper {
+        @apply relative bg-main;
+        
+        &:after, &:before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            transition: all .15s ease;
+        }
+
+        &:before {
+            @apply bg-main;
+            top: 0;
+            left: 0;
+            transform-origin: top left;
+            transform: rotate(-45deg) scale(0);
+        }
+
+        &:after {
+            @apply bg-main;
+            right: 0;
+            bottom: 0;
+            transform-origin: bottom right;
+            transform: rotate(45deg) scale(0);
+            z-index: -1;
+        }
+
+        &:hover:before {
+            transform: rotate(-45deg) scale(1);
+        }
+
+        &:hover:after {
+            transform: rotate(45deg) scale(1);
+        }
+
+        .artist-card {
+            @apply block h-64 bg-no-repeat bg-cover relative text-white;
+            transition: all .15s ease;
+
+            &:hover {
+                transform: translate(5px, -5px);
+
+                .artist-card__title {
+                    text-shadow: 2px 2px #01BAEF;
+                }
+            }
+
+            &:before {
+                background-color: rgba(50, 50, 50, 0.7);
+                content: '';
+                @apply w-full h-full absolute block;
+            }
+
+            &__title {
+                @apply relative text-center;
+                font-size: 18px;
+                font-weight: 700;
+                top: 40%;
+            }
+        }
+    }
+}

@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
-import './SideBar.scss';
+import './SideBar.css';
 
 export default class SideBar extends Component {
     render() {
         return (
-            <div id="side-bar" className="p-6 flex-none bg-black text-white">
-                <div>React-Bootstrap</div>
-                <ul className="pb-3">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/library">Your Library</Link></li>
-                    <li><Link to="/search">Search</Link></li>
-                </ul>
-                <div className="py-3 border-t-2">Recent Playlists</div>
-                <ul>
-                    <li>Playlist 1</li>
-                    <li>Playlist 2</li>
-                    <li>Playlist 3</li>
-                    <li>Playlist 4</li>
-                    <li><Link to="/">View All</Link></li>
-                </ul>
+            <div className="side-bar">
+                <div className="side-bar__wrapper">
+                    <div className="side-bar__logo">React-Bootstrap</div>
+                    <ul className="side-bar__list">
+                        <li className="side-bar__item"><NavLink exact to="/" activeClassName="side-bar__active-link">Home</NavLink></li>
+                        <li className="side-bar__item"><NavLink to="/library" activeClassName="side-bar__active-link">Your Library</NavLink></li>
+                        <li className="side-bar__item"><NavLink to="/search" activeClassName="side-bar__active-link">Search</NavLink></li>
+                    </ul>
+                    <span className="side-bar__sep"></span>
+                    <div className="side-bar__label">Recent Playlists</div>
+                    <ul className="side-bar__list">
+                        <li className="side-bar__item">Playlist 1</li>
+                        <li className="side-bar__item">Playlist 2</li>
+                        <li className="side-bar__item">Playlist 3</li>
+                        <li className="side-bar__item">Playlist 4</li>
+                        <li className="side-bar__item"><Link to="/">View All</Link></li>
+                    </ul>
+                </div>
             </div>
         )
     }

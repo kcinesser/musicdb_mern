@@ -26,6 +26,8 @@ export default class DifficultyRating extends Component {
             rating: rating,
             temp_rating: rating
         })
+
+        this.props.onDifficultyChange(rating);
     }
 
     star_over(rating) {

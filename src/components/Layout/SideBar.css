@@ -1,2 +1,37 @@
+.side-bar {
+  padding-right: 0.5rem;
+  -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  background: -webkit-gradient(linear, left bottom, left top, from(#01baef), to(#1eeaa9));
+  background: linear-gradient(0deg, #01baef 0%, #1eeaa9 100%);
+  width: 250px; }
+  .side-bar__logo {
+    margin-bottom: 0.75rem; }
+  .side-bar__wrapper {
+    padding: 1.5rem;
+    -webkit-box-flex: 0;
+    -ms-flex: none;
+        flex: none;
+    -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+    background-color: #fff;
+    height: 100%; }
+  .side-bar__label {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    text-transform: uppercase;
+    color: #848C8E; }
+  .side-bar__sep {
+    border-bottom: 1px solid #848C8E;
+    display: block;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem; }
+  .side-bar__item {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem; }
+    .side-bar__item:hover a {
+      border-bottom: 2px solid #01BAEF; }
+  .side-bar__active-link {
+    border-bottom: 2px solid #01BAEF; }
 
 /*# sourceMappingURL=SideBar.css.map */

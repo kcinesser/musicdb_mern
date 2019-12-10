@@ -40,7 +40,7 @@ gulp.task('sass', function() {
   
     return gulp.src('src/**/*.scss')
         .pipe(postcss([
-            require('tailwindcss'),
+            require('tailwindcss')('./tailwind.config.js'),
             require('autoprefixer'),
         ]))
         .pipe(plumber(plumberOptions))
@@ -55,6 +55,7 @@ gulp.task('sass', function() {
 
 gulp.task('watch', function() {
     gulp.watch('src/**/*.scss', gulp.series('sass'));
+    gulp.watch('./tailwind.config.js', gulp.series('sass'));
 });
   
 gulp.task('default', gulp.series('sass', 'watch'));

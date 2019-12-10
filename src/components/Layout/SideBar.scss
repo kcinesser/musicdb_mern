@@ -1,0 +1,36 @@
+.side-bar {
+    @apply pr-2 shadow-light;
+
+    background: linear-gradient(0deg, rgba(1,186,239,1) 0%, rgba(30,234,169,1) 100%);
+
+    width: 250px;
+
+    &__logo {
+        @apply mb-3;
+    }
+
+    &__wrapper {
+        @apply p-6 flex-none shadow-light bg-white h-full;
+    }
+
+    &__label {
+        @apply py-3 uppercase text-light;
+    }
+
+    &__sep {
+        border-bottom: 1px solid #848C8E;
+        @apply block my-3;
+    }
+
+    &__item {
+        @apply py-1;
+
+        &:hover a {
+            border-bottom: 2px solid #01BAEF;
+        }
+    }
+
+    &__active-link {
+        border-bottom: 2px solid #01BAEF;
+    }
+}

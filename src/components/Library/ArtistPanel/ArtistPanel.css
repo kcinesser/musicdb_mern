@@ -1,2 +1,66 @@
+.artist-column {
+  width: 25%;
+  padding: 0.75rem; }
+  .artist-column .artist-wrapper {
+    position: relative;
+    background-color: #1EEAA9; }
+    .artist-column .artist-wrapper:after, .artist-column .artist-wrapper:before {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      position: absolute;
+      -webkit-transition: all .15s ease;
+      transition: all .15s ease; }
+    .artist-column .artist-wrapper:before {
+      background-color: #1EEAA9;
+      top: 0;
+      left: 0;
+      -webkit-transform-origin: top left;
+      transform-origin: top left;
+      -webkit-transform: rotate(-45deg) scale(0);
+      transform: rotate(-45deg) scale(0); }
+    .artist-column .artist-wrapper:after {
+      background-color: #1EEAA9;
+      right: 0;
+      bottom: 0;
+      -webkit-transform-origin: bottom right;
+      transform-origin: bottom right;
+      -webkit-transform: rotate(45deg) scale(0);
+      transform: rotate(45deg) scale(0);
+      z-index: -1; }
+    .artist-column .artist-wrapper:hover:before {
+      -webkit-transform: rotate(-45deg) scale(1);
+      transform: rotate(-45deg) scale(1); }
+    .artist-column .artist-wrapper:hover:after {
+      -webkit-transform: rotate(45deg) scale(1);
+      transform: rotate(45deg) scale(1); }
+    .artist-column .artist-wrapper .artist-card {
+      display: block;
+      height: 16rem;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      color: #fff;
+      -webkit-transition: all .15s ease;
+      transition: all .15s ease; }
+      .artist-column .artist-wrapper .artist-card:hover {
+        -webkit-transform: translate(5px, -5px);
+        transform: translate(5px, -5px); }
+        .artist-column .artist-wrapper .artist-card:hover .artist-card__title {
+          text-shadow: 2px 2px #01BAEF; }
+      .artist-column .artist-wrapper .artist-card:before {
+        background-color: rgba(50, 50, 50, 0.7);
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: block; }
+      .artist-column .artist-wrapper .artist-card__title {
+        position: relative;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 700;
+        top: 40%; }
 
 /*# sourceMappingURL=ArtistPanel.css.map */

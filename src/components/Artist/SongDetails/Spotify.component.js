@@ -5,7 +5,7 @@ export default class Spotify extends Component {
     const id = this.props.id
 
     return (
-      <div>
+      <div className="song-details__spotify">
         {id ?
           <iframe src={`https://open.spotify.com/embed/track/${id}`} title={id} width="300" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           :

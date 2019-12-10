@@ -4,8 +4,15 @@
 
 @tailwind utilities;
 
-p, body {
-    @apply text-white;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:100,400,700|Raleway:100,400,700&display=swap');
+
+p, body, li, span, button {
+    color: #353831;
+    font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
@@ -14,93 +21,123 @@ h1 {
 
 h2 {
     font-size: 28px;
+    line-height: 1.6;
+    font-weight: 700;
+    letter-spacing: -1.6px;
 }
 
-h3 { 
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: 300;
+h3 {
+    font-size: 14px;
+    font-weight: 100;
+    letter-spacing: 1.3px;
+    @apply text-light uppercase;
 }
 
 #main-content {
     overflow-y: scroll;
-    background-color: #212024;
 }
 
-input {
-    @apply mr-3 p-2 border-white;
-    background-color: #212024;
-
-    &:focus {
-        box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.6);
-        outline: none;
-    }
-}
-
-.artist-card {
-    @apply block h-64 bg-no-repeat bg-cover relative text-white shadow;
+.button {
+    @apply text-white bg-main px-3 py-1 rounded;
 
     &:hover {
-        @apply shadow-focus;
-        transform: scale(1.025);
-    }
-
-    &:before {
-        background-color: rgba(50, 50, 50, 0.7);
-        content: '';
-        @apply w-full h-full absolute block;
-    }
-
-    div {
-        @apply relative text-center;
-        top: 40%;
+        @apply shadow-light;
     }
 }
 
-.song-list .song-item {
-    @apply py-3;
-    border-bottom: 1px solid #757575;
+.list {
+    @apply mb-6 pr-6;
 
-    &:last-child {
-        border: none;
+    &__header {
+        @apply flex items-center mb-3;
+
+        span {
+            border-bottom: 1px solid #848C8E;
+            @apply py-1;
+        }
+    }
+
+    &__item {
+        @apply flex items-center py-1;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #d0d0d0;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: #f7f7f7;
+        }
+    }
+
+    &__item--active {
+        @apply flex items-center py-1;
+        background-color: #f7f7f7;
+        border-bottom: 1px solid #01BAEF;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #f7f7f7;
+        }
     }
 }
 
-%visually-hidden {
-    position: absolute;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    height: 1px; width: 1px;
-    margin: -1px; padding: 0; border: 0;
-}
-  
-.star-rating__star {
-    display: inline-block;
-    padding: 3px;
-    vertical-align: middle;
-    line-height: 1;
-    font-size: 1.5em;
-    background-color: #000000;
-    color: transparent;
-    text-shadow: 2px 2px 3px rgba(51, 51, 51, 0.5);
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    transition: color .2s ease-out;
-}
-     
-.star-rating__star:hover {
-    cursor: pointer;
-}
-      
-.star-rating__star.is-selected {
-    color: #FF312E;
-}
-      
-.star-rating__star.is-disabled:hover {
-    cursor: default;
-}
+.form {
 
-.star-rating__star__checkbox {
-    @extend %visually-hidden;
+    input {
+        @apply px-3 py-1;
+        border-bottom: 1px solid #848C8E;
+
+        &:focus {
+            outline: none;
+            border-bottom-width: 2px;
+        }
+    }
+
+    textarea {
+        @apply w-full p-3;
+        border-bottom: 1px solid #848C8E;
+
+        &:focus {
+            outline: none;
+            border-bottom-width: 2px;
+        }
+    }
+
+    &__header {
+        font-size: 28px;
+        line-height: 1.6;
+        font-weight: 700;
+        letter-spacing: -1.6px;
+    }
+
+    &__subheader {
+        font-size: 14px;
+        font-weight: 100;
+        letter-spacing: 1.3px;
+        @apply text-light;
+    }
+
+    &__control {
+        @apply mb-3 flex items-center;
+    }
+
+    &__label {
+        @apply text-light uppercase mr-3 w-1/5;
+        font-weight: 100;
+    }
+
+    &.form--full {
+        input {
+            @apply block w-full;
+        }
+    }
+
+    &.form--inline {
+        @apply flex;
+
+        input {
+            @apply mr-3;
+        }
+    }
 }

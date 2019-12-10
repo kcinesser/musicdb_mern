@@ -1,22 +1,22 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Statuses = Object.freeze({
-  NotStarted: 'Not Started',
-  InProgress: 'In Progress',
-  Proficient: 'Proficient',
-  Mastered: 'Mastered'
-});
+const Statuses = ['', 'Not Started', 'In Progress', 'Proficient', 'Mastered'];
+const Genres = ['', 'Folk', 'Blues', 'Rock', 'Classical', 'Metal', 'Soundtrack', 'Pop'];
+const Instruments = ['', 'Acoustic Guitar', 'Electric Guitar', 'Piano'];
 
 const songSchema = new Schema({
-    title: { type: String, required: true,},
-    artist: { type: String, required: true},
-    difficulty: { type: Number },
-    notes: [{ type: String }],
-    album: { type: String},
-    artist: { type: String, required: true },
-    uploads: [{ type: String }],
-    status: { type: String, enum: Object.values(Statuses)}
+  artist_id: { type: String, required: true},
+  title: { type: String, required: true,},
+  difficulty: { type: Number, default: 0 },
+  notes: String,
+  album: { type: String},
+  uploads: [{ type: String }],
+  status: { type: String, enum: Statuses, default: 'Not Started'},
+  instrument: { type: String, enum: Instruments, default: ''},
+  genre: { type: String, enum: Genres, default: ''},
+  spotify_id: String,
+  youtube_id: String
 }, {
   timestamps: true,
 });

@@ -29,25 +29,23 @@ export default class SongForm extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    this.props.addSong({ title: this.state.title, artist: this.state.artist, album: this.state.album })
-    this.setState({ title: '', artist: '', album: '' })
+    this.props.addSong({ title: this.state.title, album: this.state.album })
+    this.setState({ title: '', album: '' })
   }
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-            <input value={this.state.title}
-              onChange={this.onChangeSongTitle} placeholder="Title" />
+      <form className="form form--inline" onSubmit={this.onSubmit}>
+          <input value={this.state.title}
+            onChange={this.onChangeSongTitle} placeholder="Title" />
 
-            <input value={this.state.album}
-              onChange={this.onChangeAlbumName} placeholder="Album" />
+          <input value={this.state.album}
+            onChange={this.onChangeAlbumName} placeholder="Album" />
 
-            <button type="submit">
-              Add Song
-            </button>
-        </form>
-      </div>
+          <button className="button" type="submit">
+            Add Song
+          </button>
+      </form>
     )
   }
 }

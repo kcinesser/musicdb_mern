@@ -46,9 +46,9 @@ class App extends Component {
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
           <Switch>
+          <RouteWithLayout exact path="/" component={Dashboard} text="Dashboard" />
             <RouteWithLayout exact path="/library" component={Library} text="Your Library" />
             <RouteWithLayout exact path="/search" component={Search} text="Search" />
-            <RouteWithLayout exact path="/" component={Dashboard} text="Dashboard" />
             <RouteWithLayout exact path="/artist/:id" component={Artist} />
           </Switch>
         </Router> 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class NewArtist extends Component {
+class NewArtist extends Component {
     constructor(props) {
         super(props)
 
@@ -37,7 +38,7 @@ export default class NewArtist extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        this.props.onAdd({ name: this.state.name, spotify_id: this.state.spotify_id, image_url: this.state.image_url });
+        this.props.onAdd({ name: this.state.name, spotify_id: this.state.spotify_id, image_url: this.state.image_url, user_id: this.props.auth.user.id });
 
         this.setState({ name: '', spotify_id: '', image_url: '' })
     }
@@ -58,3 +59,9 @@ export default class NewArtist extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+
+export default connect(mapStateToProps)(NewArtist);

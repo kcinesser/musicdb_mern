@@ -1,0 +1,125 @@
+.spotify-link {
+    @apply mx-3 flex items-center;
+    font-size: 24px;
+
+    i {
+        padding-top: 4px;
+    }
+}
+
+.artist-header {
+    @apply flex items-center;
+
+    &__image-wrapper {
+        @apply flex items-center mb-6 my-6 mr-6 bg-secondary;
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+    }
+
+    &__image {
+        @apply bg-center bg-no-repeat bg-cover w-full h-full shadow-light;
+        border-radius: 50%;
+        transform: translate(5px, -5px);
+    }
+}
+
+.song-details {
+    @apply mt-6 p-6 shadow;
+
+    &__spotify {
+        @apply shadow-light;
+        width: 300px;
+    }
+
+    &__youtube {
+        @apply shadow-light;
+    }
+
+    &__edit {
+        cursor: pointer;
+    }
+}
+
+.song-edit {
+    @apply mt-6 shadow;
+
+    .form__body {
+        @apply p-6;
+    }
+
+    .form__buttons {
+        @apply flex text-center;
+
+        .form-button {
+            @apply py-3 text-white cursor-pointer;
+    
+            &--main[type="submit"] {
+                @apply bg-main ;
+                -webkit-appearance: none;
+                
+                &:hover {
+                    @apply shadow-light;
+                    text-shadow: 2px 2px #01BAEF;
+                }
+            }
+            
+            &--secondary {
+                @apply bg-secondary;
+    
+                &:hover {
+                    text-shadow: 2px 2px #1EEAA9;
+                }
+            }
+    
+            &:hover {
+                @apply shadow-light;
+            }
+
+            &:focus {
+                @apply shadow-light;
+                outline: none;
+            }
+        }
+    }
+}
+
+%visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px; width: 1px;
+    margin: -1px; padding: 0; border: 0;
+}
+  
+.star-rating__star {
+    display: inline-block;
+    padding: 3px;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 1.5em;
+    background-color: #b3b3b3;
+    color: transparent;
+    text-shadow: 2px 2px 3px rgba(255,255,255,0.5);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    transition: color .2s ease-out;
+}
+     
+.star-rating__star:hover {
+    cursor: pointer;
+}
+      
+.star-rating__star.is-selected {
+    @apply text-main;
+    text-shadow: none;
+}
+      
+.star-rating__star.is-disabled:hover {
+    cursor: default;
+}
+
+.star-rating__star__checkbox {
+    @extend %visually-hidden;
+}
