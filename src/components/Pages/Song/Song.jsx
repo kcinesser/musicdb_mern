@@ -61,8 +61,16 @@ export default class Song extends Component {
           </div>
         </div>
         <div className="song-content">
-          <Spotify spotifyId={song.spotify_id} />
-          <Youtube youtubeId={song.youtube_id} />
+          { song.spotify_id.length ?
+            <Spotify spotifyId={song.spotify_id} />
+          :
+            ''
+          }
+          { song.youtube_id.length ?
+            <Youtube youtubeId={song.youtube_id} />
+          :
+            ''
+          }
         </div>
         <div className="song-content">
           <div>

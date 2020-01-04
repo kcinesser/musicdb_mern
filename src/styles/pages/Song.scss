@@ -29,6 +29,7 @@
   .song-content {
     @include flex;
     @include margin-b($six);
+    @include padding-x($three);
 
     iframe {
       @include margin-r($six);

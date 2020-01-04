@@ -11,7 +11,7 @@ router.route('/').get((req, res) => {
 
 // Get song
 router.route('/:id').get((req, res) => {
-  Song.findById(req.params.id).populate('artist')
+  Song.findById(req.params.id).populate('artist').populate('uploads')
     .then(song => res.json(song))
     .catch(err => res.status(400).json('Error: ' + err));
 });

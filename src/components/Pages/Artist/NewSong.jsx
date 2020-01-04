@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Difficulty from '../../Difficulty';
+import Upload from '../../Upload';
 
 import { Genres, Instruments, Statuses } from '../../../services/enums/SongEnums';
 
@@ -10,6 +11,7 @@ class NewSong extends Component {
     super(props)
 
     this.handleInput = this.handleInput.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
     this.onRate = this.onRate.bind(this);
     this.selectFields = this.selectFields.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
@@ -25,12 +27,17 @@ class NewSong extends Component {
       instrument: '',
       genre: '',
       spotify_id: '',
-      youtube_id: ''
+      youtube_id: '',
+      file: ''
     }
   }
 
   handleInput(e) {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleUpload(file) {
+    this.setState({file: file})
   }
 
   onRate(rating) {
@@ -65,7 +72,8 @@ class NewSong extends Component {
       instrument: '',
       genre: '',
       spotify_id: '',
-      youtube_id: ''
+      youtube_id: '',
+      file: ''
     })
   }
 
@@ -83,6 +91,13 @@ class NewSong extends Component {
             <div className="difficulty-container">
               <span className="form-label">Difficulty</span>
               <Difficulty rating={0} editable={true} onRate={this.onRate} />
+            </div>
+            <div className="file-container">
+              <Upload handleUpload={this.handleUpload}>
+                <div className="file-upload__contents">
+                    <div>{this.state.file.name}</div>
+                </div>
+              </Upload>
             </div>
             <textarea name="notes" onChange={this.handleInput} placeholder="Notes" autoComplete="off" />
             <input name="spotify_id" onChange={this.handleInput} placeholder="Spotify ID" autoComplete="off" />
