@@ -14,20 +14,17 @@
     "node-sass": "^4.13.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "postcss-cli": "^6.1.3",
-    "postcss-scss": "^2.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1",
+    "react-scripts": "^3.3.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
-    "tailwindcss": "^1.1.4",
     "validator": "^12.0.0"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"gulp\"",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -48,16 +45,10 @@
     ]
   },
   "devDependencies": {
-    "browser-sync": "^2.26.7",
-    "concurrently": "^5.0.0",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-eslint": "^6.0.0",
-    "gulp-filter": "^6.0.0",
-    "gulp-notify": "^3.2.0",
-    "gulp-plumber": "^1.2.1",
-    "gulp-postcss": "^8.0.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5"
+    "css-loader": "^3.4.0",
+    "dotenv": "^8.2.0",
+    "prop-types": "^15.7.2",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.1.2"
   }
 }

@@ -1,0 +1,65 @@
+.song-page {
+  .song-header {
+    @include flex;
+    @include margin-b($six);
+    align-items: baseline;
+
+    .button.button--back {
+      @include margin-r($six);
+    }
+
+    .song-header__album {
+      @include flex;
+
+      h3 {
+        @include margin-r($three);
+        @include margin-b($one);
+      }
+    }
+
+    .subhead {
+      @include margin-r($two);
+      
+      &:not(:first-of-type) {
+        @include margin-l($two);
+      }
+    }
+  }
+
+  .song-content {
+    @include flex;
+    @include margin-b($six);
+
+    iframe {
+      @include margin-r($six);
+    }
+  }
+}
+
+.songs-page {
+  .song-list {
+    .song-list__header p, .song-list__item p {
+      @include width($third);
+    }
+
+    .song-list__header {
+      @include flex;
+      @include padding-x($three);
+    }
+
+    .song-list__item {
+      @include flex;
+      @include items-center;
+      @include padding-x($three);
+      border-bottom: 1px solid $highlight;
+
+      &:hover {
+        background-color: $highlight;
+      }
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+  }
+}

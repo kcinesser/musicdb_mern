@@ -1,0 +1,437 @@
+@import './variables';
+@import './mixins';
+@import './fontawesome/scss/fontawesome.scss';
+@import "./fontawesome/scss/solid.scss";
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700&display=swap');
+
+@import './pages/Artist.scss';
+@import './pages/Song.scss';
+
+html {
+  font-size: 16px;
+}
+
+body {
+  @include margin($none);
+}
+
+body, p, * {
+  font-family: $primary-font;
+  font-size: $font-body;
+  color: $text-color;
+}
+
+h1 {
+  font-size: $font-xlg;
+  @include margin-t($none);
+}
+
+h2 {
+  font-size: $font-lg;
+  @include margin-t($none);
+}
+
+h3 {
+  font-size: $font-md;
+  @include margin-t($none);
+
+  &.light {
+    color: $light-text-color;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+}
+
+.subhead {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    border-bottom: 1px solid $primary-color;
+  }
+
+  &.active {
+    border-bottom: 2px solid $primary-color;
+  }
+}
+
+ul, ol {
+  padding-inline-start: 0px;
+  list-style: none;
+}
+
+.app {
+  @include flex;
+}
+
+.button {
+  @include padding-y($one);
+  @include padding-x($three);
+  border: none;
+  cursor: pointer;
+
+  &:focus {
+    box-shadow: $shadow-light;
+    outline: none;  
+  }
+
+  &:hover {
+    box-shadow: $shadow-light;
+  }
+
+  &.button--primary {
+    background-color: $primary-color;
+    color: #fff;
+  }
+
+  &.button--secondary {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+  }
+
+  &.button--profile {
+    @extend %fa-icon;
+    @extend .fas;
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid $primary-color;
+    color: $primary-color;
+    box-shadow: $shadow-light;
+
+    &:before {
+      content: fa-content($fa-var-user);
+    }
+
+    &:hover {
+      box-shadow: $shadow;
+    }
+  }
+
+  &.button--back {
+    @extend %fa-icon;
+    @extend .fas;
+
+    &:hover {
+      color: #000;
+      cursor: pointer;
+      box-shadow: none;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  
+    &:before {
+      content: fa-content($fa-var-arrow-left);
+    }
+  }
+
+  &.button--new {
+    @extend %fa-icon;
+    @extend .fas;
+    background-color: $primary-color;
+    padding: 10px;
+    border-radius: 50%;
+    color: #fff;
+    box-shadow: $shadow-light;
+
+    &:before {
+      content: fa-content($fa-var-plus);
+    }
+
+    &:hover {
+      box-shadow: $shadow;
+    }
+  }
+
+  &.button--edit {
+    @extend %fa-icon;
+    @extend .fas;
+    @include margin-l($three);
+    padding: 5px 0 0 0;
+
+    &:before {
+      content: fa-content($fa-var-ellipsis-h);
+    }
+
+    &:hover {
+      box-shadow: none;
+      color: #000;
+    }
+  }
+
+  &.button--close {
+    @extend %fa-icon;
+    @extend .fas;
+
+    &:before {
+      content: fa-content($fa-var-times);
+    }
+
+    &:hover {
+      box-shadow: none;;
+    }
+  }
+}
+
+.sidebar {
+  @include padding-r($three);
+  @include height($screen);
+
+  min-width: 200px;
+  background: $primary-color;
+  box-shadow: $shadow-light;
+  position: fixed;
+
+  .sidebar__inner {
+    @include padding($six);
+    @include height($screen);
+
+    background: #fff;
+    box-shadow: $shadow-light;
+
+    li {
+      @include margin-y($two);
+    }
+
+    .sidebar__sep {
+      @include margin-y($six);
+      display: block;
+      border-bottom: 2px solid $light-text-color;
+    }
+
+    .sidebar__label {
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.main-content {
+  @include padding($six);
+  @include width($full);
+  @include margin-l(212px);
+  
+  overflow-y: scroll;
+
+  .navbar {
+    @include width($full);
+    @include flex;
+    @include margin-b($six);
+
+    flex-direction: row-reverse;
+  }
+}
+
+.library-nav {
+  .library-nav__links {
+    @include flex;
+    @include width($half);
+    @include margin-x($auto);
+
+    li {
+      @include width($fourth);
+      text-align: center;
+
+      a {
+        font-size: $font-md;
+      }
+    }
+  }
+}
+
+form {
+  input, textarea {
+    @include width($full);
+    @include margin-b($four);
+  }
+
+  .select-container {
+    @include width($full);
+    @include margin-b($four);
+    @include flex;
+
+    .form-label {
+      @include width($fourth);
+    }
+
+    select {
+      @include width($three-fourth);
+      background: #fff;
+      border-radius: 0px;
+      appearance: none;
+    }
+  }
+  
+
+  .difficulty-container {
+    @include margin-b($four);
+
+    .form-label {
+      @include margin-r($three);
+    }
+  }
+
+  button {
+    @include margin-t($three);
+    @include margin-l($auto);
+    display: block;
+  }
+
+  .submit-container {
+    @include margin-t($six);
+    @include width($full);
+  }
+
+  .form-label {
+    color: $light-text-color;
+  }
+}
+
+input, textarea, select {
+  display: block;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 2px solid $highlight;
+  color: $text-color;
+
+  &::placeholder {
+    color: $light-text-color;
+  }
+
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid $text-color;
+  }
+
+  &.filter {
+    @include margin-l($three);
+    @include padding-r($six);
+  }
+}
+
+
+.filter-bar {
+  @include flex;
+
+  .clear {
+    @extend %fa-icon;
+    @extend .fas;
+
+    &:before {
+      content: fa-content($fa-var-times-circle);
+      cursor: pointer;
+      position: relative;
+      left: -15px;
+      color: $light-text-color;
+    }
+  }
+}
+
+.page-header {
+  @include flex;
+  @include justify-between;
+  @include items-center;
+  @include padding-x($three);
+}
+
+.modal {
+  @include height($full);
+  @include width($full);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $overlay-color;
+
+  h2 {
+    @include margin-b($none);
+  }
+
+  .modal__header {
+    @include flex;
+    @include justify-between;
+    @include items-center;
+    @include margin-b($six);
+  }
+
+  .modal__content {
+    @include width($half);
+    @include margin-x($auto);
+    @include margin-t(10%);
+    @include padding($eight);
+    border-bottom: 2px solid $primary-color;
+    box-shadow: $shadow;
+    background-color: #fff;
+  }
+}
+
+.star-rating {
+  display: inline-block;
+
+  .star-rating__star {
+    color: transparent;
+    text-shadow: 2px 2px 3px rgba(255,255,255,0.8);
+    background-clip: text;
+    background-color: #9f9f9f;
+
+    &.is-selected {
+      color: $primary-color;
+    }
+  }
+}
+
+.options-menu {
+  position: relative;
+
+  .options-menu__body {
+    @include margin-l($two);
+    @include padding($two);
+    background-color: $text-color;
+    box-shadow: $shadow-light;
+    position: absolute;
+    top: 0px;
+    left: 100%;
+    border-radius: 4px;
+
+    .options-menu__item {
+      color: #fff;
+      cursor: pointer;
+
+      &:hover {
+        color: $light-text-color;
+      }
+    }
+  }
+}
+
+.dialog-box {
+  @include height($full);
+  @include width($full);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $overlay-color;
+
+  .dialog-box__content {
+    @include width($half);
+    @include margin-x($auto);
+    @include margin-t(10%);
+    @include padding($eight);
+    text-align: center;
+
+    h2 {
+      color: #fff;
+    }
+    
+    button {
+      @include margin-x($three);
+    }
+  }
+}

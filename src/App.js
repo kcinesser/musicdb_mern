@@ -6,14 +6,21 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 
-import PrivateRoute from "./components/private-route/private_route.component";
+import './styles/App.scss';
 
-import Login from './components/login/login.component';
-import Register from './components/login/register.component';
-import Library from './components/Library/Library.component';
-import Dashboard from './components/dashboard.component';
-import Search from './components/search.component';
-import Artist from './components/Artist/ArtistPage.component';
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+
+import Login from './components/Pages/Login/Login';
+import Register from './components/Pages/Login/Register';
+import Dashboard from './components/Pages/Dashboard/Dashboard';
+import Search from './components/Pages/Search/Search';
+import ArtistList from './components/Pages/Library/ArtistList/ArtistList';
+import SongList from './components/Pages/Library/SongList/SongList';
+import RoutineList from './components/Pages/Library/RoutineList/RoutineList';
+import GenreList from './components/Pages/Library/GenreList/GenreList';
+
+import Artist from './components/Pages/Artist/Artist';
+import Song from './components/Pages/Song/Song';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -46,10 +53,14 @@ class App extends Component {
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
           <Switch>
-          <RouteWithLayout exact path="/" component={Dashboard} text="Dashboard" />
-            <RouteWithLayout exact path="/library" component={Library} text="Your Library" />
-            <RouteWithLayout exact path="/search" component={Search} text="Search" />
+            <RouteWithLayout exact path="/" component={Dashboard} />
+            <RouteWithLayout exact path="/library/songs" component={SongList} />
+            <RouteWithLayout exact path="/library/artists" component={ArtistList} />
+            <RouteWithLayout exact path="/library/routines" component={RoutineList} />
+            <RouteWithLayout exact path="/library/genres" component={GenreList} />
+            <RouteWithLayout exact path="/search" component={Search} />
             <RouteWithLayout exact path="/artist/:id" component={Artist} />
+            <RouteWithLayout exact path="/song/:id" component={Song} />
           </Switch>
         </Router> 
       </Provider>

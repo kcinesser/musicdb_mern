@@ -1,0 +1,54 @@
+/** Colors **/
+$primary-color: #1EEAA9;
+$secondary-color: #01BAEF;
+$text-color: #616163;
+$light-text-color: #D0D1CF;
+$highlight: #efefef;
+$overlay-color: rgba(25, 25, 25, 0.6);
+
+/** Fonts **/
+$primary-font: 'Roboto', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
+
+/** Font Sizes **/
+$font-body: 1rem;
+$font-sm: 0.75rem;
+$font-md: 1.25rem;
+$font-lg: 1.75rem;
+$font-xlg: 2rem;
+
+/** Box Shadow **/
+$shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 0.6);
+$shadow-focus: 0 10px 15px -3px rgba(0, 0, 0, 0.8), 0 4px 6px -2px rgba(0, 0, 0, 0.8);
+$shadow-light: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+
+/** Spacing */
+$none: 0;
+$one: 0.25rem;
+$two: 0.5rem;
+$three: 0.75rem;
+$four: 1rem;
+$five: 1.25rem;
+$six: 1.5rem;
+$eight: 2rem;
+$sixteen: 4rem;
+
+/** Width **/
+$full: 100%;
+$auto: auto;
+$half: 50%;
+$third: 33.33333%;
+$two-third: 66.66666%;
+$fourth: 25%;
+$three-fourth: 75%;
+$fifth: 20%;
+$two-fifth: 40%;
+$three-fifth: 60%;
+$four-fifth: 80%;
+$sixth: 16.66667%;
+$eigth: 12.5555%;
+
+/** Height **/
+$full: 100%;
+$auto: auto;
+$screen: 100vh;

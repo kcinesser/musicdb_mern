@@ -11,12 +11,7 @@ router.route('/').get((req, res) => {
 
 //Create a new artist
 router.route('/add').post((req, res) => {
-  const name = req.body.name;
-  const image_url = req.body.image_url;
-  const spotify_id = req.body.spotify_id;
-  const user_id = req.body.user_id;
-
-  const newArtist = new Artist({user_id, name, spotify_id, image_url});
+  const newArtist = new Artist(req.body);
 
   newArtist.save()
     .then(() => res.json(newArtist))
@@ -25,18 +20,23 @@ router.route('/add').post((req, res) => {
 
 //Get single artist
 router.route('/:id').get((req, res) => {
-  Artist.findById(req.params.id)
+  Artist.findById(req.params.id).populate('songs')
     .then(artist => res.json(artist))
     .catch(err => res.status(400).json('Error: ' + err));
-
-  Song.find({ artist_id: req.params.id })
-    .then(songs => console.log(songs))
 });
 
 //Delete artist
 router.route('/:id').delete((req, res) => {
   Artist.findByIdAndDelete(req.params.id)
-    .then(() => res.json('Artist deleted.'))
+    .then(artist => { 
+      artist.songs.map(song => {
+        Song.findByIdAndDelete(song)
+          .then(() => res.json('Song deleted'))
+          .catch(err => res.status(400).json('Error: ' + err));
+      })
+
+      res.json(artist)
+    })
     .catch(err => res.status(400).json('Error: ' + err));
 });
 

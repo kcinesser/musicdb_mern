@@ -1,0 +1,120 @@
+.artist-list {
+  @include flex;
+  @include flex-wrap;
+  @include width($full);
+
+  .artist-card {
+    @include height(200px);
+    @include width($third);
+    @include margin-b($six);
+
+    .artist-card__wrapper {
+      @include height($full);
+      @include padding($three);
+    }
+
+    .artist-card__inner {
+      @include height($full);
+      @include width($full);
+
+      box-shadow: $shadow;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      display: block;
+
+      &:hover {
+        transform: scale(1.01);
+        box-shadow: $shadow-focus;
+      }
+
+      &:before {
+        @include height($full);
+        @include width($full);
+        content: '';
+        background-color: $overlay-color;
+        position: absolute;
+      }
+    }
+
+    .artist-card__title {
+      text-align: center;
+      position: relative;
+      top: 40%;
+      
+      h3 {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.artist-page {
+  .artist-header {
+    @include flex;
+    @include items-center;
+    @include justify-between;
+    @include margin-b($six);
+
+    .artist-header__left {
+      @include flex;
+      @include items-center;
+    }
+
+    h2 {
+      @include margin-b($none);
+    }
+
+    .button.button--back {
+      @include margin-r($six);
+    }
+
+    .artist-header__image {
+      @include height(90px);
+      @include width(90px);
+      @include margin-r($six);
+      box-shadow: $shadow;
+      border-radius: 50%;
+      position: relative;
+      background-position: center;
+      background-size: cover;
+
+
+      &:before {
+        @include height($full);
+        @include width($full);
+        content: '';
+        background-color: $overlay-color;
+        position: absolute;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .song-list {
+    .song-list__header p, .song-list__item p {
+      @include width($third);
+    }
+
+    .song-list__header {
+      @include flex;
+      @include padding-x($three);
+    }
+
+    .song-list__item {
+      @include flex;
+      @include items-center;
+      @include padding-l($three);
+      border-bottom: 1px solid $highlight;
+
+      &:hover {
+        background-color: $highlight;
+      }
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+  }
+}
