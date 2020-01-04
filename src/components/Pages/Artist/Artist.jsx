@@ -77,7 +77,7 @@ export default class Artist extends Component {
 
   onNewSongSubmit(song) {
     this.setState({
-      showForm: false
+      showNewSongForm: false
     });
 
     song.artist = this.state.artist._id;

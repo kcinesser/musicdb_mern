@@ -22,12 +22,9 @@ connection.once('open', () => {
 const songsRouter = require('./routes/songs');
 const usersRouter = require('./routes/users');
 const artistsRouter = require('./routes/artists');
+const uploadRouter = require('./routes/upload');
 
-app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
-);
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 // Passport middleware
@@ -40,6 +37,7 @@ require("./config/passport")(passport);
 app.use('/api/users', usersRouter);
 app.use('/api/songs', songsRouter);
 app.use('/api/artists', artistsRouter);
+app.use('/api/upload', uploadRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

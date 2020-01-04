@@ -17,7 +17,17 @@ export default class SongService {
 
   saveSong = (song) => {
     return axios.post(this.url + '/add', song)
-      .then(res => { return res.data })
+      .then(res => { 
+        if(song.file) {
+          let fileData = new FormData();
+          fileData.append('file', song.file);
+
+          axios.post('http://localhost:5000/api/upload/' + res.data._id + '/new', fileData)
+            .then(res => {})
+            .catch(err => console.log(err))
+        }
+        return res.data 
+      })
       .catch(err => { console.log(err) })
   }  
 }

@@ -268,13 +268,34 @@ form {
       appearance: none;
     }
   }
-  
 
   .difficulty-container {
     @include margin-b($four);
 
     .form-label {
       @include margin-r($three);
+    }
+  }
+
+  .file-container {
+    @include margin-b($four);
+
+    .file-upload {
+      @include height($sixteen);
+      border: dashed 2px $light-text-color;
+      position: relative;
+
+      &:hover {
+        border: dashed 2px $primary-color;
+      }
+
+      .file-upload__inner {
+        text-align: center;
+      }
+
+      .file-upload__contents {
+        @include padding($three);
+      }
     }
   }
 
