@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Spotify from '../../Spotify';
 import Youtube from '../../Youtube';
 import Difficulty from '../../Difficulty';
+import FileEmbed from '../../FileEmbed';
 
 import SongService from '../../../services/SongService';
 
@@ -59,20 +60,26 @@ export default class Song extends Component {
             <span className="subhead">{song.genre}</span>|
             <span className="subhead">{song.instrument}</span>
           </div>
+
         </div>
         <div className="song-content">
           { song.spotify_id.length ?
-            <Spotify spotifyId={song.spotify_id} />
+            <Spotify spotifyId={song.spotify_id} height={380} width={300} />
           :
             ''
           }
           { song.youtube_id.length ?
-            <Youtube youtubeId={song.youtube_id} />
+            <Youtube youtubeId={song.youtube_id} height={380} width={675} />
           :
             ''
           }
         </div>
         <div className="song-content">
+          { song.uploads.length ?
+            <FileEmbed file={song.uploads[0].url} />
+          :
+            ''
+          }
           <div>
             <h3>Notes</h3>
             {song.notes}

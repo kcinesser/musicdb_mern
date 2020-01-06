@@ -21,6 +21,7 @@ import GenreList from './components/Pages/Library/GenreList/GenreList';
 
 import Artist from './components/Pages/Artist/Artist';
 import Song from './components/Pages/Song/Song';
+import Routine from './components/Pages/Routine/Routine';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -61,6 +62,7 @@ class App extends Component {
             <RouteWithLayout exact path="/search" component={Search} />
             <RouteWithLayout exact path="/artist/:id" component={Artist} />
             <RouteWithLayout exact path="/song/:id" component={Song} />
+            <RouteWithLayout exact path="/routine/:id" component={Routine} />
           </Switch>
         </Router> 
       </Provider>

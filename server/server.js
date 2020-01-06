@@ -23,6 +23,7 @@ const songsRouter = require('./routes/songs');
 const usersRouter = require('./routes/users');
 const artistsRouter = require('./routes/artists');
 const uploadRouter = require('./routes/upload');
+const routineRouter = require('./routes/routines');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -38,6 +39,7 @@ app.use('/api/users', usersRouter);
 app.use('/api/songs', songsRouter);
 app.use('/api/artists', artistsRouter);
 app.use('/api/upload', uploadRouter);
+app.use('/api/routines', routineRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

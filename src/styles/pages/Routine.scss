@@ -1,0 +1,126 @@
+.routine-page {
+  .routine-header {
+    @include flex;
+    @include margin-b($six);
+    align-items: baseline;
+
+    .routine-details h2, p {
+      @include margin-y($none);
+    }
+
+    .button.button--back {
+      @include margin-r($six);
+    }
+  }
+
+  .routine-content {
+    @include flex;
+    @include justify-between;
+
+    .selected-song {
+      @include width($half);
+      @include padding($three);
+
+      .selected-song__header {
+        @include margin-b($three);
+
+        h3, p {
+          @include margin-y($none);
+        }
+
+        .artist {
+          color: $light-text-color;
+          text-transform: uppercase;
+        }
+
+        .album {
+          color: $light-text-color;
+        }
+      }
+
+      .subhead {
+        @include margin-r($two);
+
+        &:not(:first-of-type) {
+          @include margin-x($two);
+        }
+      }
+
+      iframe {
+        @include margin-t($three);
+      }
+    }
+
+    .song-list {
+      @include width($third);
+
+      .timer-container {
+        @include padding-x($three);
+      }
+
+      .song-list__header p {
+        @include width($third);
+      }
+
+      .song-list__header {
+        @include flex;
+        @include padding-x($three);
+      }
+
+      .song-list__item {
+        @include padding-x($three);
+        position: relative;
+        border-bottom: 1px solid $highlight;
+
+        p {
+          @include width($third);
+        }
+        
+        &.placeholder {
+          min-height: 28px;
+          background-color: $light-text-color;
+        }
+
+        .button.button--draggable {
+          float: right;
+        }
+
+        &:hover {
+          background-color: $highlight;
+        }
+
+        &:last-of-type {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+
+.routines-page {
+  .routine-list {
+    .routine-list__header p, .routine-list__item p {
+      @include width($third);
+    }
+
+    .routine-list__header {
+      @include flex;
+      @include padding-x($three);
+    }
+
+    .routine-list__item {
+      @include flex;
+      @include items-center;
+      @include padding-x($three);
+      border-bottom: 1px solid $highlight;
+
+      &:hover {
+        background-color: $highlight;
+      }
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+  }
+}

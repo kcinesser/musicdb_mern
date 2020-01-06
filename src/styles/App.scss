@@ -7,7 +7,8 @@
 
 @import './pages/Artist.scss';
 @import './pages/Song.scss';
-
+@import './pages/Routine.scss';
+@import './pages//Dashboard.scss';
 html {
   font-size: 16px;
 }
@@ -95,6 +96,22 @@ ul, ol {
     color: #fff;
   }
 
+  &.button--control {
+    color: $light-text-color;
+    @include padding-x($two);
+    @include padding-y($one);
+    border-bottom: 1px solid #fff;
+
+    &:hover {
+      box-shadow: none;
+      border-bottom: 1px solid $light-text-color;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
   &.button--profile {
     @extend %fa-icon;
     @extend .fas;
@@ -175,7 +192,66 @@ ul, ol {
     }
 
     &:hover {
-      box-shadow: none;;
+      box-shadow: none;
+    }
+  }
+
+  &.button--draggable {
+    &:after {
+      @extend %fa-icon;
+      @extend .fas;
+
+      position: absolute;
+      right: $three;
+
+      content: fa-content($fa-var-bars);
+    }
+
+    &:hover {
+      box-shadow: none;
+      color: #000;
+    }
+  }
+
+  &.button--play {
+    @extend %fa-icon;
+    @extend .fas;
+
+    &:before {
+      content: fa-content($fa-var-play);
+    }
+
+    &:hover {
+      box-shadow: none;
+      color: #000;
+    }
+  }
+
+  &.button--pause {
+    @extend %fa-icon;
+    @extend .fas;
+
+    &:before {
+      content: fa-content($fa-var-pause);
+    }
+
+    &:hover {
+      box-shadow: none;
+      color: #000;
+    }
+  }
+
+  &.button--reset {
+    @extend %fa-icon;
+    @extend .fas;
+
+    &:before {
+      content:"\f01e";;
+    }
+
+    &:hover {
+      box-shadow: none;
+      color: #000;
     }
   }
 }
@@ -207,6 +283,8 @@ ul, ol {
     }
 
     .sidebar__label {
+      @include margin-b($three);
+      display: block;
       font-weight: 300;
       text-transform: uppercase;
     }
@@ -454,5 +532,24 @@ input, textarea, select {
     button {
       @include margin-x($three);
     }
+  }
+}
+
+.timer {
+  text-align: center;
+
+  .timer__header {
+    @include margin-b($three);
+    font-size: $font-xlg;
+
+    &.pause {
+      animation: flickerAnimation 1.5s infinite;
+    }
+  }
+
+  @keyframes flickerAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
   }
 }

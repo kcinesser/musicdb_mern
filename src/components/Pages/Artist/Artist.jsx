@@ -119,8 +119,9 @@ export default class Artist extends Component {
         <div className="artist-header">
           <div className="artist-header__left">
             <button className="button button--back" onClick={this.goBack}></button>
-            <div className="artist-header__image" style={{ backgroundImage: 'url(' + artist.image_url + ')' }}></div>
-            <h2>{artist.name}</h2>
+            <div className="artist-header__image" style={{ backgroundImage: 'url(' + artist.image_url + ')' }}>
+              <h2>{artist.name}</h2>
+            </div>
             <OptionsButton>
               <div className="options-menu__item" onClick={this.toggleEditForm}>Edit</div>
               <div className="options-menu__item" onClick={() => this.handleDeleteArtistDialog(true)}>Delete</div>

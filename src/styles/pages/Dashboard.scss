@@ -1,0 +1,67 @@
+.dashboard {
+  @include padding-x($three);
+
+
+  .dashboard-content__row {
+    @include flex;
+    @include margin-b($six);
+
+    .dashboard-content__col {
+      @include width($half);
+      @include padding($six);
+      @include margin-r($six);
+      box-shadow: $shadow-light;
+      border: 1px solid $primary-color;
+
+      &.full {
+        @include width($full);
+      }
+
+      .dashboard__item {
+        @include margin-y($one);
+        @include flex;
+        @include justify-between;
+        list-style: none;
+
+        &:last-of-type {
+          @include margin-b($six);
+        }
+      }
+
+      .played-time {
+        .played-time__container {
+          @include margin-b($three);
+        }
+
+        .time {
+          font-size: $font-lg;
+          color: $primary-color;
+          font-weight: 700;
+        }
+        .time-label {
+          @include margin-r($three);
+          letter-spacing: -0.9px;
+        }
+      }
+
+      .view-more {
+        color: $light-text-color;
+        text-transform: uppercase;
+      }
+
+      .controls {
+        @include flex;
+        @include margin-b($three);
+
+        button {
+          font-size: $font-sm;
+
+          &.active {
+            color: $text-color;
+            border-bottom: 1px solid $primary-color;
+          }
+        }
+      }
+    }
+  }
+}

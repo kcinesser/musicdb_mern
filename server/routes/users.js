@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const async = require('async');
 
 require('dotenv').config();
 
@@ -11,6 +12,9 @@ const validateLoginInput = require("../validation/login");
 
 // Load User model
 const User = require("../models/user.model");
+const Artist = require("../models/artist.model");
+const Song = require("../models/song.model");
+const Routine = require('../models/routine.model');
 
 // @route POST api/users/register
 // @desc Register user
@@ -98,6 +102,54 @@ router.post("/login", (req, res) => {
             }
         });
     });
+});
+
+router.get("/:id/dashboard", (req, res) => {
+    let userId = req.params.id;
+    var dashboard = {
+        user: '',
+        artists: [],
+        songs: [],
+        routines: []
+     };
+
+    User.findById(userId)
+        .then(user => { 
+            dashboard.user = user 
+
+            Artist.find({ user_id: userId }).sort('-createdAt').limit(10)
+                .then(artists => { 
+                    dashboard.artists = artists 
+                
+                    Song.find({ user_id: userId }).populate('artist').sort('-createdAt').limit(10)
+                        .then(songs => { 
+                            dashboard.songs = songs 
+                        
+                            Routine.find({ user_id: userId }).sort('-createdAt').limit(10)
+                                .then(routines => { 
+                                    dashboard.routines = routines;
+
+                                    Routine.find({ user_id: userId }).sort('-lastPlayed').limit(10)
+                                        .then(routines => {
+                                            dashboard.recentlyPlayed = routines;
+
+                                            Routine.find({ user_id: userId }).sort('-playCount').limit(10)
+                                                .then(routines => {
+                                                    dashboard.mostPlayed = routines;
+
+                                                    res.json(dashboard);
+                                                })
+                                        })
+                                        .catch(err => res.status(400).json('Error: ' + err));
+                                })
+                                .catch(err => res.status(400).json('Error: ' + err));
+                        })
+                        .catch(err => res.status(400).json('Error: ' + err));
+                })
+                .catch(err => res.status(400).json('Error: ' + err));
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+
 });
 
 module.exports = router;

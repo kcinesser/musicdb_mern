@@ -16,6 +16,7 @@ class SongList extends Component {
     this.songList = this.songList.bind(this);
     this.filterList = this.filterList.bind(this);
     this.clearFilter = this.clearFilter.bind(this);
+    this.handleDrag = this.handleDrag.bind(this);
 
     this.state = {
       songs: [],
@@ -36,7 +37,7 @@ class SongList extends Component {
   songList() {
     return this.state.filteredSongs.map((song, key) => {
       return (
-        <Link className="song-list__item" key={key} to={`/song/${song._id}`} >
+        <Link className="song-list__item" draggable="true" key={key} to={`/song/${song._id}`} onDragStart={(e) => this.handleDrag(e, song._id)} >
           <p>{song.title}</p>
           <p>{song.artist.name}</p>
           <p>{song.album}</p>
@@ -72,6 +73,10 @@ class SongList extends Component {
       })
   }
 
+  handleDrag(e, id) {
+    e.dataTransfer.setData("id", id);
+  }
+
   render() {
     return (
       <div className="songs-page">
@@ -85,7 +90,7 @@ class SongList extends Component {
               value={this.state.filterValue}
               />
           <span className={this.state.showClear ? 'clear' : ''} onClick={() => this.clearFilter()}></span>
-      </div>
+        </div>
         <div className="song-list">
           <div className="song-list__header">
             <p>Title</p>

@@ -4,7 +4,7 @@ let Artist = require('../models/artist.model');
 
 // Get all songs for logged in user
 router.route('/').get((req, res) => {
-  Song.find({ user_id: req.query.user_id }).populate('artist').sort('artist.name')
+  Song.find({ user_id: req.query.user_id }).populate('artist').sort('title')
     .then(songs => res.json(songs))
     .catch(err => res.status(400).json('Error: ' + err));
 });
