@@ -9,6 +9,7 @@ export default class LibraryNav extends Component {
           <li><NavLink to="songs" activeClassName="active">Songs</NavLink></li>
           <li><NavLink to="artists" activeClassName="active">Artists</NavLink></li>
           <li><NavLink to="routines" activeClassName="active">Routines</NavLink></li>
+          <li><NavLink to="instruments" activeClassName="active">Instruments</NavLink></li>
           <li><NavLink to="genres" activeClassName="active">Genres</NavLink></li>
         </ul>
       </div>

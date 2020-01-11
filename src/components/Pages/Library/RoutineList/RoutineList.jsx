@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import LibraryNav from '../LibraryNav';
 import RoutineService from '../../../../services/RoutineService';
 
+var moment = require('moment');
+
 class RoutineList extends Component {
   routineService = new RoutineService();
 
@@ -31,14 +33,23 @@ class RoutineList extends Component {
 
   routineList() {
     return this.state.routines.map((routine, key) => {
+      let lastPlayed = '';
+      if(routine.lastPlayed) {
+        lastPlayed = moment(routine.lastPlayed).format("MMM D, YYYY")
+      } else {
+        lastPlayed = "Never"
+      }
+
       return (
         <Link className="routine-list__item" key={key} to={`/routine/${routine._id}`} >
           <p>{routine.name}</p>
           {routine.lastPlayed ?
-              <p>routine.lastPlayed}</p>
+              <p>{lastPlayed}</p>
               :
               <p>Never</p>
             }
+          <p>{routine.songs.length}</p>
+          <p>{routine.estTime} min</p>
         </Link>
       )
     })
@@ -55,6 +66,8 @@ class RoutineList extends Component {
          <div className="routine-list__header">
             <p>Playlist Name</p>
             <p>Last Played</p>
+            <p># Items</p>
+            <p>Est. Time</p>
           </div>
           {this.routineList()}
         </div>

@@ -45,6 +45,7 @@ class NewSong extends Component {
   }
 
   selectFields(type) {
+    console.log(type)
     return type.map((option, key) => {
       return <option value={type[key]} key={key}>{option === '' ? 'None' : option}</option>
     })

@@ -5,9 +5,10 @@ import { connect } from "react-redux";
 import axios from "axios";
 import { isSameMonth, isSameYear, isSameWeek } from 'date-fns'
 
-
 import DashboardService from '../../../services/DashboardService';
 import { Link } from 'react-router-dom';
+
+import Chart from './Chart';
 
 class Dashboard extends Component {
   dashboardService = new DashboardService();
@@ -183,8 +184,11 @@ class Dashboard extends Component {
         <div className="dashboard-content">
           <div className="dashboard-content__row">
             <div className="dashboard-content__col full">
-              <h3>Breakdown</h3>
-              {this.calculateTime()}
+              <div>
+                <h3>Breakdown</h3>
+                {this.calculateTime()}
+              </div>
+              <Chart records={this.state.dashboard.user.records} />
             </div>
           </div>
           <div className="dashboard-content__row">

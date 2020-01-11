@@ -6,7 +6,8 @@ const routineSchema = new Schema({
   name: { type: String, required: true,},
   songs: [ { type: Schema.Types.ObjectId, ref: 'Song', unique: true } ],
   lastPlayed: { type: Date, default: null },
-  playCount: { type: Number, default: 0 }
+  playCount: { type: Number, default: 0 },
+  estTime: { type: Number, default: 0 }
 }, {
   timestamps: true,
 });

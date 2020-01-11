@@ -9,6 +9,7 @@
 @import './pages/Song.scss';
 @import './pages/Routine.scss';
 @import './pages//Dashboard.scss';
+
 html {
   font-size: 16px;
 }
@@ -25,16 +26,19 @@ body, p, * {
 
 h1 {
   font-size: $font-xlg;
+  letter-spacing: -2px;
   @include margin-t($none);
 }
 
 h2 {
   font-size: $font-lg;
+  letter-spacing: -2px;
   @include margin-t($none);
 }
 
 h3 {
   font-size: $font-md;
+  letter-spacing: -2px;
   @include margin-t($none);
 
   &.light {
@@ -46,6 +50,7 @@ h3 {
 
 .subhead {
   font-weight: 300;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
@@ -310,11 +315,11 @@ ul, ol {
 .library-nav {
   .library-nav__links {
     @include flex;
-    @include width($half);
+    @include width($three-fourth);
     @include margin-x($auto);
 
     li {
-      @include width($fourth);
+      @include width($fifth);
       text-align: center;
 
       a {
@@ -551,5 +556,59 @@ input, textarea, select {
     0%   { opacity:1; }
     50%  { opacity:0; }
     100% { opacity:1; }
+  }
+}
+
+.instruments-page {
+  .instrument-list {
+    @include flex;
+    @include flex-wrap;
+    @include width($full);
+  
+    .instrument-card {
+      @include height(300px);
+      @include width($half);
+      @include margin-b($six);
+  
+      .instrument-card__wrapper {
+        @include height($full);
+        @include padding($three);
+      }
+  
+      .instrument-card__inner {
+        @include height($full);
+        @include width($full);
+  
+        box-shadow: $shadow;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        display: block;
+  
+        &:hover {
+          transform: scale(1.01);
+          box-shadow: $shadow-focus;
+        }
+  
+        &:before {
+          @include height($full);
+          @include width($full);
+          content: '';
+          background-color: $overlay-color;
+          position: absolute;
+        }
+      }
+  
+      .instrument-card__title {
+        text-align: center;
+        position: relative;
+        top: calc(50% - 12px);
+        
+        h3 {
+          color: #fff;
+        }
+      }
+    }
   }
 }

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const Statuses = ['', 'Not Started', 'In Progress', 'Proficient', 'Mastered'];
 const Genres = ['', 'Folk', 'Blues', 'Rock', 'Classical', 'Metal', 'Soundtrack', 'Pop'];
-const Instruments = ['', 'Acoustic Guitar', 'Electric Guitar', 'Piano'];
+const Instruments = ['', 'Acoustic Guitar', 'Electric Guitar', 'Piano', 'Bass'];
 
 const songSchema = new Schema({
   user_id: { type: String, required: true },

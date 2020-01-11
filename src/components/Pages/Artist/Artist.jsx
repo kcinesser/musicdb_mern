@@ -24,6 +24,7 @@ export default class Artist extends Component {
     this.editArtist = this.editArtist.bind(this);
     this.deleteArtist = this.deleteArtist.bind(this);
     this.handleDeleteArtistDialog = this.handleDeleteArtistDialog.bind(this);
+    this.handleDrag = this.handleDrag.bind(this);
 
     this.state = {
       artist: [],
@@ -54,7 +55,7 @@ export default class Artist extends Component {
   songList() {
     return this.state.songs.map((song, key) => {
       return (
-        <Link className="song-list__item" key={key} to={`/song/${song._id}`} >
+        <Link className="song-list__item" draggable="true" key={key} to={`/song/${song._id}`} onDragStart={(e) => this.handleDrag(e, song._id)} >
           <p>{song.title}</p>
           <p>{song.album}</p>
           <p>{song.status}</p>
@@ -105,6 +106,10 @@ export default class Artist extends Component {
     this.artistService.deleteArtist(this.state.artist)
       .then(res => { this.setState({ isDeleted: true }) })
       .catch(err => {console.log(err)})
+  }
+
+  handleDrag(e, id) {
+    e.dataTransfer.setData("id", id);
   }
 
   render() {

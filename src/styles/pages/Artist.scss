@@ -41,7 +41,7 @@
     .artist-card__title {
       text-align: center;
       position: relative;
-      top: 40%;
+      top: calc(50% - 12px);
       
       h3 {
         color: #fff;
@@ -84,7 +84,6 @@
       position: relative;
       background-position: center;
       background-size: cover;
-
 
       &:before {
         @include height($full);

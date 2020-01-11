@@ -15,6 +15,9 @@
 
       &.full {
         @include width($full);
+        @include flex;
+        @include items-center;
+        @include justify-between;
       }
 
       .dashboard__item {
@@ -44,6 +47,11 @@
         }
       }
 
+      .chart-container {
+        @include flex;
+        @include items-center;
+      }
+
       .view-more {
         color: $light-text-color;
         text-transform: uppercase;
@@ -52,6 +60,17 @@
       .controls {
         @include flex;
         @include margin-b($three);
+
+        &.controls--chart {
+          display: block;
+          text-align: center;
+
+          button {
+            display: block;
+            @include margin-y($three);
+            @include margin-x($auto);
+          }
+        }
 
         button {
           font-size: $font-sm;
