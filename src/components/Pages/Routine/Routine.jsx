@@ -193,7 +193,6 @@ class Routine extends Component {
           :
             ''
           }
-
         </div>
       </div>
     )

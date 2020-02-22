@@ -64,7 +64,7 @@ class RoutineList extends Component {
         </div>
         <div className="routine-list">
          <div className="routine-list__header">
-            <p>Playlist Name</p>
+            <p>Routine Name</p>
             <p>Last Played</p>
             <p># Items</p>
             <p>Est. Time</p>

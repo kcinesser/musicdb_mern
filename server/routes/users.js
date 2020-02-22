@@ -152,4 +152,24 @@ router.get("/:id/dashboard", (req, res) => {
 
 });
 
+router.route('/:id').put((req, res) => {
+    let userId = req.params.id;
+    let updatedUser = null;
+
+    User.findById(userId).then(user => {
+        user.password = req.body.password;
+        
+        bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(user.password, salt, (err, hash) => {
+                if (err) throw err;
+                user.password = hash;
+                user
+                .save()
+                .then(user => res.json(user))
+                .catch(err => console.log(err));
+            });
+        });
+    });
+});
+
 module.exports = router;
